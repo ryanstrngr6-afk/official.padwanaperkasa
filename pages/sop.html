@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP - Padataran Wana Perkasa</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/logo.png" alt="Padataran Wana Perkasa" class="logo">
+                <span>Padataran Wana Perkasa</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                <li class="dropdown">
+                    <a href="#">Recruitment <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="recruitment/form.html">Form Recruitment</a></li>
+                        <li><a href="recruitment/success.html">Success</a></li>
+                        <li><a href="recruitment/cek-status.html">Cek Status</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Driver <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="driver/driver-aktif.html">Driver Aktif</a></li>
+                        <li><a href="driver/profil-driver.html">Profil Driver</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Event <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="event/semua-event.html">Semua Event</a></li>
+                        <li><a href="event/detail-event.html">Detail Event</a></li>
+                    </ul>
+                </li>
+                <li><a href="pengumuman.html">Pengumuman</a></li>
+                <li><a href="sop.html" class="active">SOP</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header" style="background: linear-gradient(rgba(26, 77, 62, 0.8), rgba(26, 77, 62, 0.8)); color: white; padding: 60px 20px; text-align: center;">
+        <div class="container">
+            <h1 style="color: #d4af37; margin-bottom: 0.5rem;">SOP (Standar Operasional Prosedur)</h1>
+            <p>Panduan operasional untuk driver Padataran Wana Perkasa</p>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 60px 20px;">
+        <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <div id="sopContent" style="display: grid; gap: 2rem;">
+                <!-- SOP akan dimuat dari JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Tentang Kami</h4>
+                <p>Padataran Wana Perkasa adalah perusahaan transportasi terpercaya dengan layanan profesional.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                    <li><a href="sop.html">SOP</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>Email: info@padwanaperkasa.com</p>
+                <p>Phone: +62 123 4567 8900</p>
+            </div>
+            <div class="footer-section">
+                <h4>Ikuti Kami</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Padataran Wana Perkasa. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        function loadSOP() {
+            const sopList = [
+                {
+                    title: 'Pre-Trip Inspection',
+                    content: 'Sebelum memulai perjalanan, driver harus melakukan pemeriksaan kendaraan meliputi: rem, lampu, ban, sistem pendingin, bahan bakar, dan wiper.'
+                },
+                {
+                    title: 'Keselamatan Berkendara',
+                    content: 'Selalu patuhi rambu lalu lintas, jaga kecepatan yang aman, hindari mengemudi dalam kondisi lelah, dan gunakan sabuk pengaman setiap saat.'
+                },
+                {
+                    title: 'Komunikasi dengan Penumpang',
+                    content: 'Berikan salam kepada penumpang dengan ramah, konfirmasi rute yang akan ditempuh, dan berikan update jika ada keterlambatan.'
+                },
+                {
+                    title: 'Kebersihan Kendaraan',
+                    content: 'Jaga kendaraan tetap bersih dan rapi, lakukan pembersihan sebelum dan sesudah melayani penumpang.'
+                },
+                {
+                    title: 'Penanganan Keluhan',
+                    content: 'Dengarkan keluhan penumpang dengan baik, catat detail keluhan, dan laporkan ke manajemen dalam waktu 24 jam.'
+                },
+                {
+                    title: 'Laporan Harian',
+                    content: 'Setiap hari, driver harus melaporkan jumlah penumpang, jarak tempuh, bahan bakar yang digunakan, dan kondisi kendaraan.'
+                }
+            ];
+            
+            const content = document.getElementById('sopContent');
+            content.innerHTML = '';
+            
+            sopList.forEach((sop, index) => {
+                const sopDiv = document.createElement('div');
+                sopDiv.style.borderLeft = '4px solid #d4af37';
+                sopDiv.style.paddingLeft = '1.5rem';
+                sopDiv.innerHTML = `
+                    <h3 style="color: #1a4d3e; margin-bottom: 0.5rem;">${index + 1}. ${sop.title}</h3>
+                    <p style="color: #666; line-height: 1.8;">${sop.content}</p>
+                `;
+                content.appendChild(sopDiv);
+            });
+        }
+        
+        loadSOP();
+    </script>
+</body>
+</html>

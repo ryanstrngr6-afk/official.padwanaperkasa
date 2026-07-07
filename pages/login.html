@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Padataran Wana Perkasa</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a4d3e 0%, #0d2b22 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .login-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .login-header img {
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+        
+        .login-header h1 {
+            color: #1a4d3e;
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+        }
+        
+        .login-header p {
+            color: #666;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="../assets/logo.png" alt="Padataran Wana Perkasa">
+                <h1>Padataran Wana Perkasa</h1>
+                <p>Portal Sistem Manajemen</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email / Username</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="role"><i class="fas fa-user-tag"></i> Login Sebagai</label>
+                    <select id="role" name="role" required>
+                        <option value="driver">Driver</option>
+                        <option value="admin">Admin</option>
+                        <option value="super_admin">Super Admin</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" style="margin-bottom: 0.5rem;">
+                    <label style="display: flex; gap: 10px; font-weight: normal;">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span>Ingat saya</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Masuk</button>
+            </form>
+            
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">
+                    Belum memiliki akun? <a href="../pages/recruitment/form.html" style="color: #d4af37; text-decoration: none; font-weight: bold;">Daftar sekarang</a>
+                </p>
+                <p style="color: #999; font-size: 0.85rem;">
+                    <a href="../index.html" style="color: #999; text-decoration: none;"><i class="fas fa-arrow-left"></i> Kembali ke beranda</a>
+                </p>
+            </div>
+            
+            <!-- Demo credentials -->
+            <div style="margin-top: 2rem; padding: 1rem; background: #f5f5f5; border-radius: 4px; font-size: 0.85rem;">
+                <strong style="color: #1a4d3e;">Demo Akun:</strong>
+                <p style="margin: 0.5rem 0 0 0; color: #666;">
+                    <strong>Driver:</strong> driver@test.com / 123456<br>
+                    <strong>Admin:</strong> admin@test.com / 123456<br>
+                    <strong>Super Admin:</strong> superadmin@test.com / 123456
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const role = document.getElementById('role').value;
+            
+            // Simple validation (untuk demo)
+            if (email && password) {
+                // Simpan user ke localStorage
+                const user = {
+                    email: email,
+                    role: role,
+                    loginTime: new Date().toLocaleString('id-ID')
+                };
+                
+                StorageHelper.setUser(user);
+                
+                // Redirect berdasarkan role
+                if (role === 'driver') {
+                    window.location.href = '../dashboard/driver-dashboard.html';
+                } else if (role === 'admin') {
+                    window.location.href = '../dashboard/admin-dashboard.html';
+                } else if (role === 'super_admin') {
+                    window.location.href = '../dashboard/super-admin-dashboard.html';
+                }
+            } else {
+                alert('Silakan isi email dan password');
+            }
+        });
+    </script>
+</body>
+</html>

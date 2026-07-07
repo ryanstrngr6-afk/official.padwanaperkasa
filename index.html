@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padataran Wana Perkasa - Beranda</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="Padataran Wana Perkasa" class="logo">
+                <span>Padataran Wana Perkasa</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="pages/tentang-kami.html">Tentang Kami</a></li>
+                <li class="dropdown">
+                    <a href="#">Recruitment <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/recruitment/form.html">Form Recruitment</a></li>
+                        <li><a href="pages/recruitment/success.html">Success</a></li>
+                        <li><a href="pages/recruitment/cek-status.html">Cek Status</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Driver <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/driver/driver-aktif.html">Driver Aktif</a></li>
+                        <li><a href="pages/driver/profil-driver.html">Profil Driver</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Event <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/event/semua-event.html">Semua Event</a></li>
+                        <li><a href="pages/event/detail-event.html">Detail Event</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/pengumuman.html">Pengumuman</a></li>
+                <li><a href="pages/sop.html">SOP</a></li>
+                <li><a href="pages/faq.html">FAQ</a></li>
+                <li><a href="pages/login.html" class="btn-login">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di Padataran Wana Perkasa</h1>
+            <p>Bergabunglah dengan kami dan rasakan pengalaman yang luar biasa</p>
+            <button class="btn btn-primary" onclick="location.href='pages/recruitment/form.html'">Daftar Sekarang</button>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Fitur Utama Kami</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Recruitment</h3>
+                    <p>Daftar sebagai driver dan bergabung dengan tim kami yang profesional</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-car"></i>
+                    <h3>Driver Aktif</h3>
+                    <p>Lihat daftar driver aktif dan informasi kontak mereka</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar"></i>
+                    <h3>Event</h3>
+                    <p>Ikuti event menarik dan dapatkan hadiah eksklusif</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-bell"></i>
+                    <h3>Pengumuman</h3>
+                    <p>Dapatkan update terbaru tentang perusahaan kami</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Siap untuk Bergabung?</h2>
+            <p>Daftar sekarang dan nikmati berbagai keuntungan eksklusif</p>
+            <button class="btn btn-primary" onclick="location.href='pages/recruitment/form.html'">Mulai Sekarang</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Tentang Kami</h4>
+                <p>Padataran Wana Perkasa adalah perusahaan transportasi terpercaya dengan layanan profesional.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="pages/tentang-kami.html">Tentang Kami</a></li>
+                    <li><a href="pages/sop.html">SOP</a></li>
+                    <li><a href="pages/faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>Email: info@padwanaperkasa.com</p>
+                <p>Phone: +62 123 4567 8900</p>
+            </div>
+            <div class="footer-section">
+                <h4>Ikuti Kami</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Padataran Wana Perkasa. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

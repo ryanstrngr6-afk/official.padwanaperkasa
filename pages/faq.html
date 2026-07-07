@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Padataran Wana Perkasa</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/logo.png" alt="Padataran Wana Perkasa" class="logo">
+                <span>Padataran Wana Perkasa</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                <li class="dropdown">
+                    <a href="#">Recruitment <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="recruitment/form.html">Form Recruitment</a></li>
+                        <li><a href="recruitment/success.html">Success</a></li>
+                        <li><a href="recruitment/cek-status.html">Cek Status</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Driver <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="driver/driver-aktif.html">Driver Aktif</a></li>
+                        <li><a href="driver/profil-driver.html">Profil Driver</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Event <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="event/semua-event.html">Semua Event</a></li>
+                        <li><a href="event/detail-event.html">Detail Event</a></li>
+                    </ul>
+                </li>
+                <li><a href="pengumuman.html">Pengumuman</a></li>
+                <li><a href="sop.html">SOP</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header" style="background: linear-gradient(rgba(26, 77, 62, 0.8), rgba(26, 77, 62, 0.8)); color: white; padding: 60px 20px; text-align: center;">
+        <div class="container">
+            <h1 style="color: #d4af37; margin-bottom: 0.5rem;">FAQ (Pertanyaan yang Sering Diajukan)</h1>
+            <p>Temukan jawaban atas pertanyaan umum Anda</p>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 60px 20px;">
+        <div id="faqContent" style="display: grid; gap: 1rem;">
+            <!-- FAQ akan dimuat dari JavaScript -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Tentang Kami</h4>
+                <p>Padataran Wana Perkasa adalah perusahaan transportasi terpercaya dengan layanan profesional.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                    <li><a href="sop.html">SOP</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>Email: info@padwanaperkasa.com</p>
+                <p>Phone: +62 123 4567 8900</p>
+            </div>
+            <div class="footer-section">
+                <h4>Ikuti Kami</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Padataran Wana Perkasa. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        function loadFAQ() {
+            const faqList = [
+                {
+                    question: 'Bagaimana cara mendaftar sebagai driver?',
+                    answer: 'Anda dapat mendaftar melalui halaman Form Recruitment dengan mengisi data diri, pengalaman berkendara, dan mengunggah dokumen yang diperlukan.'
+                },
+                {
+                    question: 'Berapa lama proses verifikasi pendaftaran?',
+                    answer: 'Proses verifikasi biasanya memakan waktu 3-5 hari kerja. Anda dapat melacak status pendaftaran melalui halaman Cek Status Pendaftaran.'
+                },
+                {
+                    question: 'Apa saja dokumen yang diperlukan untuk pendaftaran?',
+                    answer: 'Dokumen yang diperlukan meliputi: KTP, SIM asli dan fotokopi, STNK kendaraan, dan asuransi kendaraan.'
+                },
+                {
+                    question: 'Apakah ada biaya pendaftaran?',
+                    answer: 'Tidak ada biaya pendaftaran. Proses pendaftaran sepenuhnya gratis dan tidak ada biaya tersembunyi.'
+                },
+                {
+                    question: 'Bagaimana jika saya mengalami masalah dengan kendaraan?',
+                    answer: 'Hubungi team support kami melalui nomor hotline. Kami akan membantu menyelesaikan masalah dengan cepat.'
+                },
+                {
+                    question: 'Apakah ada program insentif atau bonus?',
+                    answer: 'Ya, kami memiliki program bonus bulanan untuk driver dengan performa terbaik dan kepuasan pelanggan tertinggi.'
+                },
+                {
+                    question: 'Bagaimana cara menghubungi customer service?',
+                    answer: 'Anda dapat menghubungi customer service kami melalui email info@padwanaperkasa.com atau telepon +62 123 4567 8900.'
+                },
+                {
+                    question: 'Apakah ada asuransi untuk driver?',
+                    answer: 'Ya, semua driver kami dilindungi oleh asuransi komprehensif yang mencakup kecelakaan dan kesehatan.'
+                }
+            ];
+            
+            const content = document.getElementById('faqContent');
+            content.innerHTML = '';
+            
+            faqList.forEach((faq, index) => {
+                const faqDiv = document.createElement('div');
+                faqDiv.className = 'card';
+                faqDiv.style.cursor = 'pointer';
+                faqDiv.innerHTML = `
+                    <div class="card-header" style="padding: 1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleAnswer(this)">
+                        <h4 style="margin: 0;">${faq.question}</h4>
+                        <i class="fas fa-chevron-down" style="transition: transform 0.3s ease;"></i>
+                    </div>
+                    <div class="card-body" style="display: none; padding: 1rem; border-top: 1px solid #ddd;">
+                        <p style="color: #666; line-height: 1.8;">${faq.answer}</p>
+                    </div>
+                `;
+                content.appendChild(faqDiv);
+            });
+        }
+        
+        function toggleAnswer(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            const isVisible = body.style.display !== 'none';
+            
+            body.style.display = isVisible ? 'none' : 'block';
+            icon.style.transform = isVisible ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+        
+        loadFAQ();
+    </script>
+</body>
+</html>
