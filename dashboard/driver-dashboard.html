@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Driver - Padataran Wana Perkasa</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background: #1a4d3e;
+            color: white;
+            padding: 1.5rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .sidebar-header img {
+            height: 40px;
+            width: 40px;
+        }
+        
+        .sidebar-header span {
+            font-weight: bold;
+            color: #d4af37;
+            font-size: 0.9rem;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar-menu li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.75rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #d4af37;
+            color: #1a4d3e;
+        }
+        
+        .main-content {
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        
+        .top-bar {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #d4af37;
+        }
+        
+        .stat-card h4 {
+            color: #666;
+            margin: 0 0 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .stat-card .stat-value {
+            color: #1a4d3e;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .content-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section h2 {
+            color: #1a4d3e;
+            margin-top: 0;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                height: auto;
+                position: relative;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../assets/logo.png" alt="PWP">
+                <span>Padataran Wana Perkasa</span>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" onclick="showSection('beranda')"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#" onclick="showSection('profil')"><i class="fas fa-user"></i> Profil Saya</a></li>
+                <li><a href="#" onclick="showSection('order')"><i class="fas fa-list"></i> Pesanan</a></li>
+                <li><a href="#" onclick="showSection('performa')"><i class="fas fa-chart-bar"></i> Performa</a></li>
+                <li><a href="#" onclick="showSection('pembayaran')"><i class="fas fa-wallet"></i> Pembayaran</a></li>
+                <li><a href="#" onclick="showSection('dokumen')"><i class="fas fa-file"></i> Dokumen</a></li>
+                <li style="border-top: 1px solid rgba(212, 175, 55, 0.2); margin-top: 1rem; padding-top: 1rem;">
+                    <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div>
+                    <h1 style="margin: 0; color: #1a4d3e;">Dashboard Driver</h1>
+                    <p style="margin: 0.5rem 0 0 0; color: #666; font-size: 0.9rem;"><span id="greeting"></span></p>
+                </div>
+                <div style="text-align: right;">
+                    <p style="margin: 0; color: #666;"><strong id="userEmail"></strong></p>
+                    <p style="margin: 0.5rem 0 0 0; color: #999; font-size: 0.85rem;" id="loginTime"></p>
+                </div>
+            </div>
+            
+            <!-- Beranda Section -->
+            <div id="beranda-section" class="section">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h4>Total Pesanan</h4>
+                        <p class="stat-value">24</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Pesanan Hari Ini</h4>
+                        <p class="stat-value">3</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Rating</h4>
+                        <p class="stat-value">4.8 <i class="fas fa-star" style="font-size: 1rem; color: #d4af37;"></i></p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Pendapatan Bulan Ini</h4>
+                        <p class="stat-value">Rp 12.5 Jt</p>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h2>Pesanan Terbaru</h2>
+                    <table style="width: 100%; margin-top: 1rem;">
+                        <thead>
+                            <tr style="background: #f5f5f5;">
+                                <th style="padding: 0.75rem; text-align: left; color: #1a4d3e;">No</th>
+                                <th style="padding: 0.75rem; text-align: left; color: #1a4d3e;">Rute</th>
+                                <th style="padding: 0.75rem; text-align: left; color: #1a4d3e;">Status</th>
+                                <th style="padding: 0.75rem; text-align: left; color: #1a4d3e;">Tarif</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 0.75rem;">1</td>
+                                <td style="padding: 0.75rem;">Jakarta - Bandung</td>
+                                <td style="padding: 0.75rem;"><span style="background: #d4edda; color: #155724; padding: 0.25rem 0.75rem; border-radius: 4px;">Selesai</span></td>
+                                <td style="padding: 0.75rem;">Rp 500.000</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #ddd;">
+                                <td style="padding: 0.75rem;">2</td>
+                                <td style="padding: 0.75rem;">Bandung - Surabaya</td>
+                                <td style="padding: 0.75rem;"><span style="background: #cce5ff; color: #004085; padding: 0.25rem 0.75rem; border-radius: 4px;">Dalam Perjalanan</span></td>
+                                <td style="padding: 0.75rem;">Rp 750.000</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.75rem;">3</td>
+                                <td style="padding: 0.75rem;">Surabaya - Jakarta</td>
+                                <td style="padding: 0.75rem;"><span style="background: #fff3cd; color: #856404; padding: 0.25rem 0.75rem; border-radius: 4px;">Menunggu</span></td>
+                                <td style="padding: 0.75rem;">Rp 650.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Profil Section -->
+            <div id="profil-section" class="section" style="display: none;">
+                <div class="content-section">
+                    <h2>Profil Saya</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <h4 style="color: #1a4d3e; margin-bottom: 1rem;">Informasi Pribadi</h4>
+                            <p><strong>Nama:</strong> Budi Santoso</p>
+                            <p><strong>Email:</strong> budi@padwanaperkasa.com</p>
+                            <p><strong>Telepon:</strong> +62 812 3456 7890</p>
+                            <p><strong>Alamat:</strong> Jl. Merdeka No. 123, Jakarta</p>
+                            <p><strong>Bergabung Sejak:</strong> 15 Januari 2023</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #1a4d3e; margin-bottom: 1rem;">Informasi Kendaraan</h4>
+                            <p><strong>Tipe:</strong> Mobil Sedan</p>
+                            <p><strong>Plat Nomor:</strong> B 1234 ABC</p>
+                            <p><strong>Warna:</strong> Hitam</p>
+                            <p><strong>Tahun:</strong> 2020</p>
+                            <p><strong>Status:</strong> Aktif</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" style="margin-top: 1.5rem;">Edit Profil</button>
+                </div>
+            </div>
+            
+            <!-- Pesanan Section -->
+            <div id="order-section" class="section" style="display: none;">
+                <div class="content-section">
+                    <h2>Riwayat Pesanan</h2>
+                    <p style="color: #666; margin-top: 1rem;">Fitur ini menampilkan semua pesanan yang telah Anda tangani.</p>
+                </div>
+            </div>
+            
+            <!-- Performa Section -->
+            <div id="performa-section" class="section" style="display: none;">
+                <div class="content-section">
+                    <h2>Laporan Performa</h2>
+                    <p style="color: #666; margin-top: 1rem;">Pantau performa driving Anda dengan metrik-metrik penting.</p>
+                </div>
+            </div>
+            
+            <!-- Pembayaran Section -->
+            <div id="pembayaran-section" class="section" style="display: none;">
+                <div class="content-section">
+                    <h2>Riwayat Pembayaran</h2>
+                    <p style="color: #666; margin-top: 1rem;">Lihat detail pembayaran dan penarikan dana Anda.</p>
+                </div>
+            </div>
+            
+            <!-- Dokumen Section -->
+            <div id="dokumen-section" class="section" style="display: none;">
+                <div class="content-section">
+                    <h2>Dokumen Saya</h2>
+                    <p style="color: #666; margin-top: 1rem;">Kelola dokumen dan sertifikat Anda di sini.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../js/script.js"></script>
+    <script>
+        // Check if user is logged in
+        const user = StorageHelper.getUser();
+        if (!user) {
+            window.location.href = '../login.html';
+        }
+        
+        // Display user info
+        document.getElementById('userEmail').textContent = user.email;
+        document.getElementById('loginTime').textContent = user.loginTime;
+        document.getElementById('greeting').textContent = 'Selamat datang kembali, ' + user.email.split('@')[0];
+        
+        function showSection(section) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(s => s.style.display = 'none');
+            
+            // Update active menu
+            document.querySelectorAll('.sidebar-menu a').forEach(a => a.classList.remove('active'));
+            event.target.closest('a').classList.add('active');
+            
+            // Show selected section
+            const sectionId = section + '-section';
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.style.display = 'block';
+            }
+        }
+        
+        function logout() {
+            if (confirm('Apakah Anda yakin ingin logout?')) {
+                StorageHelper.logout();
+                window.location.href = '../login.html';
+            }
+        }
+    </script>
+</body>
+</html>
