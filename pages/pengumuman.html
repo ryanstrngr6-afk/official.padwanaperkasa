@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman - Padataran Wana Perkasa</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="../assets/logo.png" alt="Padataran Wana Perkasa" class="logo">
+                <span>Padataran Wana Perkasa</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                <li class="dropdown">
+                    <a href="#">Recruitment <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="recruitment/form.html">Form Recruitment</a></li>
+                        <li><a href="recruitment/success.html">Success</a></li>
+                        <li><a href="recruitment/cek-status.html">Cek Status</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Driver <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="driver/driver-aktif.html">Driver Aktif</a></li>
+                        <li><a href="driver/profil-driver.html">Profil Driver</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Event <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="event/semua-event.html">Semua Event</a></li>
+                        <li><a href="event/detail-event.html">Detail Event</a></li>
+                    </ul>
+                </li>
+                <li><a href="pengumuman.html" class="active">Pengumuman</a></li>
+                <li><a href="sop.html">SOP</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header" style="background: linear-gradient(rgba(26, 77, 62, 0.8), rgba(26, 77, 62, 0.8)); color: white; padding: 60px 20px; text-align: center;">
+        <div class="container">
+            <h1 style="color: #d4af37; margin-bottom: 0.5rem;">Pengumuman</h1>
+            <p>Informasi penting dari Padataran Wana Perkasa</p>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 60px 20px;">
+        <div id="announcementsList" style="display: grid; gap: 1.5rem;">
+            <!-- Pengumuman akan dimuat dari JavaScript -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Tentang Kami</h4>
+                <p>Padataran Wana Perkasa adalah perusahaan transportasi terpercaya dengan layanan profesional.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                    <li><a href="sop.html">SOP</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kontak</h4>
+                <p>Email: info@padwanaperkasa.com</p>
+                <p>Phone: +62 123 4567 8900</p>
+            </div>
+            <div class="footer-section">
+                <h4>Ikuti Kami</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Padataran Wana Perkasa. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        function loadAnnouncements() {
+            const announcements = StorageHelper.getAnnouncements();
+            const list = document.getElementById('announcementsList');
+            list.innerHTML = '';
+            
+            announcements.forEach(announcement => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                            <div>
+                                <h3>${announcement.title}</h3>
+                                <small style="color: #ddd;">${announcement.date}</small>
+                            </div>
+                            <i class="fas fa-bell" style="font-size: 1.5rem; opacity: 0.7;"></i>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p style="line-height: 1.8;">${announcement.content}</p>
+                    </div>
+                `;
+                list.appendChild(card);
+            });
+        }
+        
+        loadAnnouncements();
+    </script>
+</body>
+</html>
